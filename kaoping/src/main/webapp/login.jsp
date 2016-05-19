@@ -119,32 +119,12 @@ body {
 			alert("请输入密码！");
 			return false;
 		}
-		//根据登录角色不同调用不同的action
-		if (LoginForm.type.value == 0 || LoginForm.type.value == 1) {
-			document.getElementById("LoginForm").setAttribute("action",
-					"adminLogin.action");
-		} else if (LoginForm.type.value == 2) {
-			document.getElementById("LoginForm").setAttribute("action",
-					"teacherLogin.action");
-		} else if (LoginForm.type.value == 3) {
-			document.getElementById("LoginForm").setAttribute("action",
-					"studentLogin.action");
-		}
 		document.getElementById("LoginForm").submit();
 	}
 	document.onkeydown = function(event) {
 		var e = event || window.event || arguments.callee.caller.arguments[0];
-		if (e && e.keyCode == 13) { // enter 键//要做的事情	
-			if (LoginForm.type.value == 0 || LoginForm.type.value == 1) {
-				document.getElementById("LoginForm").setAttribute("action",
-						"adminLogin.action");
-			} else if (LoginForm.type.value == 2) {
-				document.getElementById("LoginForm").setAttribute("action",
-						"teacherLogin.action");
-			} else if (LoginForm.type.value == 3) {
-				document.getElementById("LoginForm").setAttribute("action",
-						"studentLogin.action");
-			}
+		if (e && e.keyCode == 13) {
+			// enter 键//要做的事情	
 			document.getElementById("LoginForm").submit();
 		}
 	};
@@ -162,7 +142,7 @@ body {
 		<img src="img/tit.png" alt="" />
 	</div>
 	<div class="login-wrap">
-		<form name="LoginForm" id="LoginForm" method="post">
+		<form name="LoginForm" id="LoginForm" action="loginAction" method="post">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td height="25" valign="bottom">用户类型：</td>
