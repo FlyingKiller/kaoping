@@ -1,9 +1,7 @@
 package com.kaoping.dao;
 
+import com.kaoping.entities.Teacher;
+
 public interface LoginDao {
-	public void adminLoginDao(int type, int teacherId, String password);
-
-	public void cadminLoginDao(int type, int teacherId, String password);
-
-	public void teacherLoginDao(int type, int teacherId, String password);
+	public Teacher loginDao(int type, int teacherId);
 }

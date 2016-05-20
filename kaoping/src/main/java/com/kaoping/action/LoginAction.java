@@ -1,5 +1,7 @@
 package com.kaoping.action;
 
+import java.util.HashMap;
+
 import com.kaoping.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -46,22 +48,11 @@ public class LoginAction extends ActionSupport {
 		this.loginService = loginService;
 	}
 
-	// 功能方法开始
 	/**
 	 * @return 登录方法
 	 */
 	public String loginAction() {
-		int loginTag = loginService.loginService(type, teacherId, password);
-		if (loginTag == 0) {
-			return "adminLogin";
-		} else if (loginTag == 1) {
-			return "cadminLogin";
-		} else if (loginTag == 2) {
-			return "teacherLogin";
-		} else if (loginTag == 3) {
-			return "teacherFirstLogin";
-		} else {
-			return ERROR;
-		}
+		HashMap<String, Object> tagHashMap = loginService.loginService(type, teacherId, password);
+		return (String) tagHashMap.get("tag");
 	}
 }
