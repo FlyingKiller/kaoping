@@ -7,24 +7,29 @@ import com.kaoping.entities.Teacher;
 
 public class LoginService {
 	private LoginDao loginDao;
-	Teacher teacher;
 	HashMap<String, Object> loginHashMap = new HashMap<String, Object>();
 
 	public void setLoginDao(LoginDao loginDao) {
 		this.loginDao = loginDao;
 	}
 
+	/**
+	 * @param type 用户类型
+	 * @param teacherId 用户id
+	 * @param password 用户密码
+	 * @return
+	 */
 	public HashMap<String, Object> loginService(int type, int teacherId, String password) {
-		teacher = loginDao.loginDao(type, teacherId);
-		loginHashMap.put("tag", "SUCCESS");
+		Teacher teacher = loginDao.loginDao(type, teacherId);
 		if (teacher == null) {
 			loginHashMap.put("tag", "ERROR");
-		}
-		if (!password.equals(teacher.getPassword())) {
+		} else if (!password.equals(teacher.getPassword())) {
 			loginHashMap.put("tag", "ERROR");
-		}
-		if (teacher.getLoginNum() == 0) {
+		} else if (teacher.getLoginNum() == 0) {
 			loginHashMap.put("tag", "FIRST");
+		} else {
+			loginHashMap.put("tag", "SUCCESS");
+			loginHashMap.put("teacher", teacher);
 		}
 		return loginHashMap;
 	}

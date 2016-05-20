@@ -1,6 +1,9 @@
 package com.kaoping.action;
 
 import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.kaoping.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -9,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author ASUS
  *
  */
-public class LoginAction extends ActionSupport {
+public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * 
 	 */
@@ -17,7 +20,7 @@ public class LoginAction extends ActionSupport {
 	private int type;// 用户类型
 	private int teacherId;// 用户Id
 	private String password;// 用户密码
-
+	private Map<String, Object> session;
 	private LoginService loginService;
 
 	public int getType() {
@@ -48,11 +51,18 @@ public class LoginAction extends ActionSupport {
 		this.loginService = loginService;
 	}
 
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
 	/**
 	 * @return 登录方法
 	 */
 	public String loginAction() {
 		HashMap<String, Object> tagHashMap = loginService.loginService(type, teacherId, password);
+		session.put("currentUser", tagHashMap.get("teacher"));
 		return (String) tagHashMap.get("tag");
 	}
+
 }
