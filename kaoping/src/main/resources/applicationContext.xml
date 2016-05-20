@@ -10,7 +10,7 @@
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver"></property><!--加载驱动 -->
 		<property name="jdbcUrl"
-			value="jdbc:mysql://localhost:3306/world?useUnicode=true&amp;characterEncoding=gb2312&amp;zeroDateTimeBehavior=convertToNull"></property><!--创建连接 -->
+			value="jdbc:mysql://localhost:3306/kaoping?useUnicode=true&amp;characterEncoding=gb2312&amp;zeroDateTimeBehavior=convertToNull"></property><!--创建连接 -->
 		<property name="user" value="root"></property>
 		<property name="password" value="1lkj32114o"></property>
 		<property name="initialPoolSize" value="20"></property><!--配置初始连接数 -->
@@ -50,4 +50,5 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
 	</aop:config>
 	<!--导入其他Spring配置文件 -->
+	<import resource="spring/login.xml"/>
 </beans>

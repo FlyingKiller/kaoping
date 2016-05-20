@@ -4,5 +4,12 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<!-- <constant name="struts.objectFactory" value="spring"></constant> -->
-	<package name="login" extends="struts-default"></package>
+	<package name="login" extends="struts-default">
+		<action name="loginAction" class="com.kaoping.action.LoginAction"
+			method="loginAction">
+			<result name="admin" type="redirect">/login3.jsp</result>
+			<result name="cadmin" type="redirect">/login2.jsp</result>
+			<result name="teacher" type="redirect">/getEvaluation.jsp</result>
+		</action>
+	</package>
 </struts>
