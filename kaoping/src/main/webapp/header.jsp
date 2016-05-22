@@ -14,7 +14,7 @@
 		</div>
 		<div class="header-right">
 			<i class="icon-user icon-white"></i> <span
-				style="color:white;font-size:13px">${sessionScope.currentName}</span>
+				style="color:white;font-size:13px">${sessionScope.currentUser.name}</span>
 			&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon-off icon-white"></i> <a
 				id="modal-973558" href="#modal-container-973558" role="button"
 				data-toggle="modal">注销</a>

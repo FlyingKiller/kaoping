@@ -14,9 +14,12 @@ public class LoginService {
 	}
 
 	/**
-	 * @param type 用户类型
-	 * @param teacherId 用户id
-	 * @param password 用户密码
+	 * @param type
+	 *            用户类型
+	 * @param teacherId
+	 *            用户id
+	 * @param password
+	 *            用户密码
 	 * @return
 	 */
 	public HashMap<String, Object> loginService(int type, int teacherId, String password) {
