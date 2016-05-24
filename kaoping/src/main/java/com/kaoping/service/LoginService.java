@@ -2,10 +2,19 @@ package com.kaoping.service;
 
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.kaoping.dao.LoginDao;
 import com.kaoping.entities.Teacher;
 
+/**
+ * @author ASUS
+ * 登录service类
+ */
+@Service
 public class LoginService {
+	@Autowired
 	private LoginDao loginDao;
 	HashMap<String, Object> loginHashMap = new HashMap<String, Object>();
 
@@ -13,7 +22,7 @@ public class LoginService {
 		this.loginDao = loginDao;
 	}
 
-	/**
+	/**登录service方法
 	 * @param type
 	 *            用户类型
 	 * @param teacherId

@@ -1,10 +1,15 @@
 package com.kaoping.daoimply;
 
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 import com.kaoping.dao.LoginDao;
 import com.kaoping.entities.Teacher;
-
+/**
+ * @author ASUS
+ * 登录的dao的实现类
+ */
+@Repository
 public class LoginDaoImply extends FatherDaoImply implements LoginDao {
 
 	@Override

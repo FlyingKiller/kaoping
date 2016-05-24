@@ -4,14 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import com.kaoping.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @author ASUS
- *
+ * @author ASUS 登录的action类
  */
+@Controller
 public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * 
@@ -20,7 +22,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private int type;// 用户类型
 	private int teacherId;// 用户Id
 	private String password;// 用户密码
-	private Map<String, Object> session;
+	private Map<String, Object> session;// Map类型的session
+	@Autowired
 	private LoginService loginService;
 
 	public int getType() {
@@ -46,7 +49,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	public void setLoginService(LoginService loginService) {
 		this.loginService = loginService;
 	}
@@ -57,7 +60,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 * @return 登录方法
+	 * @return 登录action方法
 	 */
 	public String loginAction() {
 		HashMap<String, Object> tagHashMap = loginService.loginService(type, teacherId, password);
