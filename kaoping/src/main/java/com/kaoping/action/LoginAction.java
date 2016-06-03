@@ -70,6 +70,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		return (String) tagHashMap.get("tag");
 	}
 
+	/** ÍË³ö
+	 * @return
+	 */
 	public String exit() {
 		session.clear();
 		return SUCCESS;

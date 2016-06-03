@@ -1,13 +1,11 @@
 package com.kaoping.daoimply;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.kaoping.dao.TeacherDao;
-import com.kaoping.entities.Academy;
 import com.kaoping.entities.Teacher;
 import com.kaoping.tool.Page;
 
@@ -83,5 +81,32 @@ public class TeacherDaoImply extends FatherDaoImply implements TeacherDao {
 	public List<com.kaoping.entities.Level> Level() {
 		Query query = this.getSession().createQuery("from Level");
 		return query.list();
+	}
+
+	@Override
+	public List<Teacher> getTeacherByName(String teacherName, String academy) {
+		if ("超级管理员".equals(academy)) {
+			Query query = this.getSession().createQuery("from Teacher where name like ? or name like ? or name like ?");
+			query.setString(0, "%" + teacherName + "%");
+			query.setString(1, teacherName + "%");
+			query.setString(2, "%" + teacherName);
+			if (query.list().size() == 0) {
+				return null;
+			} else {
+				return query.list();
+			}
+		} else {
+			Query query = this.getSession()
+					.createQuery("from Teacher where name like ? or name like ? or name like ? and academy=?");
+			query.setString(0, "%" + teacherName + "%");
+			query.setString(1, teacherName + "%");
+			query.setString(2, "%" + teacherName);
+			query.setString(3, academy);
+			if (query.list().size() == 0) {
+				return null;
+			} else {
+				return query.list();
+			}
+		}
 	}
 }

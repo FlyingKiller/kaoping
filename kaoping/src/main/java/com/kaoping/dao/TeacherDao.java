@@ -17,4 +17,6 @@ public interface TeacherDao {
 	public int getTeacherPage(String departmentName, String levelName);
 
 	public List<Level> Level();
+
+	public List<Teacher> getTeacherByName(String teacherName, String academy);
 }

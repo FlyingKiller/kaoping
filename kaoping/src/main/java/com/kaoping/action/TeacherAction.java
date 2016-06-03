@@ -50,11 +50,20 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 	private String levelName;// 级别
 	private InputStream inputStream;// ajax使用
 	private Map<String, Object> session;// Map类型的session
+	private String teacherName;//按名字查询教职工之姓名
 	@Autowired
 	private TeacherService teacherService;
 
 	public int getNowPage() {
 		return nowPage;
+	}
+
+	public String getTeacherName() {
+		return teacherName;
+	}
+
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
 	}
 
 	public void setNowPage(int nowPage) {
@@ -226,7 +235,9 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 	}
 	// 功能方法
 
-	/**查询教职工
+	/**
+	 * 查询教职工
+	 * 
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
@@ -242,6 +253,13 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 		} else {
 			inputStream = new ByteArrayInputStream("none".getBytes("utf-8"));
 		}
+		return SUCCESS;
+	}
+
+	public String getTeacherByName() {
+		List<Teacher> teacherList = teacherService.getTeacherByName(
+				teacherName, academy);
+		session.put("evaTeacherList", teacherList);
 		return SUCCESS;
 	}
 
@@ -268,6 +286,5 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 			inputStream = new ByteArrayInputStream("添加成功".getBytes("utf-8"));
 		}
 		return SUCCESS;
-
 	}
 }

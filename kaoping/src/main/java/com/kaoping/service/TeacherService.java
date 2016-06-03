@@ -56,4 +56,8 @@ public class TeacherService {
 		return teacherDao.Level();
 	}
 
+	public List<Teacher> getTeacherByName(String teacherName, String academy) {
+		return teacherDao.getTeacherByName(teacherName, academy);
+	}
+
 }

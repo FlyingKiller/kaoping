@@ -15,12 +15,16 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		<action name="addTeacher" class="TeacherAction"
-			method="addTeacher">
+		<action name="addTeacher" class="TeacherAction" method="addTeacher">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
+		<action name="getTeacherByName" class="TeacherAction"
+			method="getTeacherByName">
+			<result name="success" type="redirect">/getTeacher.jsp</result>
+		</action>
+
 	</package>
 </struts>
