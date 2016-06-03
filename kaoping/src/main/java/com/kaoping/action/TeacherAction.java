@@ -260,6 +260,9 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 		List<Teacher> teacherList = teacherService.getTeacherByName(
 				teacherName, academy);
 		session.put("evaTeacherList", teacherList);
+		session.put("nowDepartment", "");
+		session.put("nowLevelName", "");
+		session.put("evaTeacherPage", "");
 		return SUCCESS;
 	}
 
