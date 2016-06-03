@@ -51,7 +51,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public void setLoginService(LoginService loginService) {
 		this.loginService = loginService;
 	}
@@ -68,6 +68,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		HashMap<String, Object> tagHashMap = loginService.loginService(type, teacherId, password);
 		session.put("currentUser", tagHashMap.get("teacher"));
 		return (String) tagHashMap.get("tag");
+	}
+
+	public String exit() {
+		session.clear();
+		return SUCCESS;
 	}
 
 }

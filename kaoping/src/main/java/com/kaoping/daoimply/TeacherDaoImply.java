@@ -62,13 +62,9 @@ public class TeacherDaoImply extends FatherDaoImply implements TeacherDao {
 	}
 
 	@Override
-	public List getAcademy() {
+	public List<String> getAcademy() {
 		Query query = this.getSession().createQuery("select academyName from Academy");
 		return query.list();
-	}
-
-	public void sql(String departmentName, String levelName) {
-
 	}
 
 	@Override
@@ -81,5 +77,11 @@ public class TeacherDaoImply extends FatherDaoImply implements TeacherDao {
 		} else {
 			return 0;
 		}
+	}
+
+	@Override
+	public List<com.kaoping.entities.Level> Level() {
+		Query query = this.getSession().createQuery("from Level");
+		return query.list();
 	}
 }

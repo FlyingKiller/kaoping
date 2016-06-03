@@ -5,11 +5,13 @@
 <struts>
 	<!-- <constant name="struts.objectFactory" value="spring"></constant> -->
 	<package name="login" extends="struts-default">
-		<action name="loginAction" class="LoginAction"
-			method="loginAction">
+		<action name="loginAction" class="LoginAction" method="loginAction">
 			<result name="SUCCESS" type="redirect">/index.jsp</result>
 			<result name="ERROR" type="redirect">/login.jsp</result>
 			<result name="FIRST" type="redirect">/teacherFirstLogin.jsp</result>
+		</action>
+		<action name="exit" class="LoginAction" method="exit">
+			<result name="success" type="redirect">/login.jsp</result>
 		</action>
 	</package>
 </struts>

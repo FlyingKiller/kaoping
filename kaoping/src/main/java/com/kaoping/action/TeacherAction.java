@@ -250,6 +250,7 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 	 */
 	public String getDeparetmentAndLevel() {
 		session.put("academyDepartment", teacherService.getAcademy());
+		session.put("level", teacherService.getLevel());
 		return SUCCESS;
 	}
 

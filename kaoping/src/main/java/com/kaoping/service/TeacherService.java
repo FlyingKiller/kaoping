@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kaoping.dao.TeacherDao;
 import com.kaoping.entities.Academy;
+import com.kaoping.entities.Level;
 import com.kaoping.entities.Teacher;
 import com.kaoping.tool.Page;
 
@@ -43,12 +44,16 @@ public class TeacherService {
 		return teacherDao.getTeacher(departmentName, levelName,page);
 	}
 
-	public List getAcademy() {
+	public List<String> getAcademy() {
 		return teacherDao.getAcademy();
 	}
 
 	public int addTeacher(Teacher teacher) {
 		return teacherDao.addTeacherAdd(teacher);
+	}
+
+	public List<Level> getLevel() {
+		return teacherDao.Level();
 	}
 
 }

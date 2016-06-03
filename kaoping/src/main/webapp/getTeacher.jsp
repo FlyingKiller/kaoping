@@ -114,7 +114,7 @@
 									</s:if> <s:else>
 										<select id="departmentName" name="departmentName"
 											style="height: 27px;" onchange="Change()"><s:if
-												test="%{#session.nowDepartment==null||#session.nowDepartment=='不限'}">
+												test="%{#session.nowDepartment==null||#session.nowDepartment==''}">
 												<option value="">不限</option>
 												<c:forEach var="dm"
 													items="${sessionScope.academyDepartment}">
@@ -134,7 +134,7 @@
 								<td align="center" bgcolor="#f1f1f1" nowrap="nowrap" width="10%">级&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
 								<td><select id="levelName" name="levelName"
 									style="height: 27px;" onchange="Change()"><s:if
-											test="%{#session.nowLevelName==null||#session.nowLevelName=='不限'}">
+											test="%{#session.nowLevelName==null||#session.nowLevelName==''}">
 											<option value="">不限</option>
 											<c:forEach var="level" items="${sessionScope.level}">
 												<option value="${level.levelName}">${level.levelName}</option>
@@ -177,10 +177,10 @@
 								<td width="5%"><strong>民族</strong></td>
 								<td width="8%"><strong>政治面貌</strong></td>
 								<td width="8%"><strong>党政级别</strong></td>
-								<td width="10%"><strong>职称</strong></td>
+								<td width="8%"><strong>职称</strong></td>
 								<td width="8%"><strong>职称级别</strong></td>
 								<td width="5%"><strong>工号</strong></td>
-								<td width="10%"><strong>所在单位</strong></td>
+								<td width="15%"><strong>所在单位</strong></td>
 								<td width=""><strong>身份证</strong></td>
 								<td width="5%"><strong>密码</strong></td>
 								<td width="5%"><strong>修改</strong></td>
