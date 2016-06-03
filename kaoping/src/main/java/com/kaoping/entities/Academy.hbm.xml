@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.kaoping.entities.Academy" table="t_academy" lazy="false">
+		<id name="academyId" column="academyid">
+		</id>
+		<property name="academyName" column="academyname"/>
+		<property name="academyPhone" column="academyphone" />
+		<property name="academyAbstract" column="academyabstract"/>
+		<property name="remark1" column="remark1"/>
+		<property name="remark2" column="remark2"/>
+	</class>
+</hibernate-mapping>

@@ -12,7 +12,7 @@ public class Teacher implements Serializable {
 	private String password;// 密码
 	private String name;// 姓名
 	private String nation;// 民族
-	private String sex;// 性别(0-男；1-女)
+	private String sex;// 性别
 	private String cardId;// 身份证
 	private String academy;// 部门
 	private String level;// 级别
@@ -164,6 +164,28 @@ public class Teacher implements Serializable {
 
 	public Teacher() {
 		super();
+	}
+
+	public Teacher(int teacherId, String password, String name, String nation, String sex, String cardId,
+			String academy, String level, String status, String degree, String dignity, String positional,
+			String positionalLevel, String positionalSery) {
+		super();
+		this.teacherId = teacherId;
+		this.password = password;
+		this.name = name;
+		this.nation = nation;
+		this.sex = sex;
+		this.cardId = cardId;
+		this.academy = academy;
+		this.level = level;
+		this.status = status;
+		this.degree = degree;
+		this.dignity = dignity;
+		this.positional = positional;
+		this.positionalLevel = positionalLevel;
+		this.positionalSery = positionalSery;
+		this.loginNum = 0;
+		this.type = 2;// 2代表教职工
 	}
 
 }

@@ -15,7 +15,7 @@
 				<div>
 					<span>系统管理</span> <a href="addAdmin.jsp">添加管理员</a> <a
 						href="getAdmin.action?nowPage=1">查看管理员</a><a
-						href="getAllTeacher.jsp">查询教职工</a> <a href="addTeacher.jsp">添加教职工</a>
+						href="getDeparetmentAndLevel.action?nowPage=1">查询教职工</a> <a href="addTeacher.jsp">添加教职工</a>
 				</div>
 			</s:if>
 			<div class="collapsed">
