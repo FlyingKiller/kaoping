@@ -299,12 +299,22 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+	/**
+	 * 按工号获取教职工
+	 * 
+	 * @return
+	 */
 	public String getTeacherById() {
 		Teacher teacher = teacherService.getTeacherById(teacherId);
 		session.put("updateTeacher", teacher);
 		return SUCCESS;
 	}
 
+	/**
+	 * 更新教职工信息
+	 * 
+	 * @return
+	 */
 	public String updateTeacher() {
 		Teacher teacher = new Teacher(teacherId, password, name, nation, sex, cardId, academy, level, status, degree,
 				dignity, positional, positionalLevel, positionalSery, id);
@@ -313,6 +323,12 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+	/**
+	 * 删除教职工
+	 * 
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
 	public String deleteTeacher() throws UnsupportedEncodingException {
 		teacherService.deleteTeacher(teacherId);
 		inputStream = new ByteArrayInputStream("删除成功".getBytes("utf-8"));
@@ -320,6 +336,28 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 		session.put("nowDepartment", "");
 		session.put("nowLevelName", "");
 		session.put("evaTeacherPage", "");
+		return SUCCESS;
+	}
+
+	/**
+	 * 添加管理员时ajax验证工号
+	 * 
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	public String checkAdminName() throws UnsupportedEncodingException {
+		if (teacherService.checkAdminName(teacherId) == 1) {
+			inputStream = new ByteArrayInputStream("已设为管理员".getBytes("utf-8"));
+		} else if (teacherService.checkAdminName(teacherId) == 3) {
+			inputStream = new ByteArrayInputStream("工号可用".getBytes("utf-8"));
+		} else {
+			inputStream = new ByteArrayInputStream("工号不存在".getBytes("utf-8"));
+		}
+		return SUCCESS;
+	}
+
+	public String addAdmin() {
+		teacherService.addAdmin(teacherId);
 		return SUCCESS;
 	}
 }

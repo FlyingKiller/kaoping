@@ -25,23 +25,29 @@ public class TeacherService {
 		this.teacherDao = teacherDao;
 	}
 
-	/** 分页查询之教职工总页数
-	 * @param departmentName 部门或学院
-	 * @param levelName 级别
+	/**
+	 * 分页查询之教职工总页数
+	 * 
+	 * @param departmentName
+	 *            部门或学院
+	 * @param levelName
+	 *            级别
 	 * @return
 	 */
 	public int getTeacherPage(String departmentName, String levelName) {
 		return teacherDao.getTeacherPage(departmentName, levelName);
 	}
 
-	/**分页查询之具体教职工结果集
+	/**
+	 * 分页查询之具体教职工结果集
+	 * 
 	 * @param departmentName
 	 * @param levelName
 	 * @param page
 	 * @return
 	 */
 	public List<Teacher> getTeacher(String departmentName, String levelName, Page page) {
-		return teacherDao.getTeacher(departmentName, levelName,page);
+		return teacherDao.getTeacher(departmentName, levelName, page);
 	}
 
 	public List<String> getAcademy() {
@@ -65,11 +71,19 @@ public class TeacherService {
 	}
 
 	public void updateTeacher(Teacher teacher) {
-		teacherDao.updateTeacher(teacher);		
+		teacherDao.updateTeacher(teacher);
 	}
 
 	public void deleteTeacher(int teacherId) {
 		teacherDao.deleteTeacher(teacherId);
+	}
+
+	public int checkAdminName(int teacherId) {
+		return teacherDao.checkAdminName(teacherId);
+	}
+
+	public void addAdmin(int teacherId) {
+		teacherDao.addAdmin(teacherId);
 	}
 
 }

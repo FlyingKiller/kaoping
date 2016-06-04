@@ -36,5 +36,15 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
+		<action name="checkAdminName" class="TeacherAction"
+			method="checkAdminName">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+			<action name="addAdmin" class="TeacherAction" method="addAdmin">
+			<result name="success" type="redirect">/addAdmin.jsp</result>
+		</action>
 	</package>
 </struts>

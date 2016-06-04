@@ -112,18 +112,15 @@ public class TeacherDaoImply extends FatherDaoImply implements TeacherDao {
 
 	@Override
 	public Teacher getTeacherById(int teacherId) {
-		Query query = this.getSession().createQuery(
-				"from Teacher where teacherId=?");
+		Query query = this.getSession().createQuery("from Teacher where teacherId=?");
 		query.setInteger(0, teacherId);
 		return (Teacher) query.list().get(0);
 	}
 
 	@Override
 	public void updateTeacher(Teacher teacher) {
-		Query query = this
-				.getSession()
-				.createQuery(
-						"update Teacher set teacherId=?,password=?,name=?,nation=?,sex=?,cardId=?,academy=?,level=?,status=? , degree=? ,dignity=? ,positional=? , positionalLevel=? , positionalSery=? where id=?");
+		Query query = this.getSession().createQuery(
+				"update Teacher set teacherId=?,password=?,name=?,nation=?,sex=?,cardId=?,academy=?,level=?,status=? , degree=? ,dignity=? ,positional=? , positionalLevel=? , positionalSery=? where id=?");
 		query.setInteger(0, teacher.getTeacherId());
 		query.setString(1, teacher.getPassword());
 		query.setString(2, teacher.getName());
@@ -144,9 +141,31 @@ public class TeacherDaoImply extends FatherDaoImply implements TeacherDao {
 
 	@Override
 	public void deleteTeacher(int teacherId) {
-		Query query = this.getSession().createQuery(
-				"delete Teacher as a where a.teacherId=?");
+		Query query = this.getSession().createQuery("delete Teacher as a where a.teacherId=?");
 		query.setInteger(0, teacherId);
 		query.executeUpdate();
-	}		
+	}
+
+	@Override
+	public int checkAdminName(int teacherId) {
+		Query query = this.getSession().createQuery("from Teacher where teacherId=?");
+		query.setInteger(0, teacherId);
+		if (query.list().size() == 0) {
+			return 2;
+		} else {
+			Teacher teacher = (Teacher) query.list().get(0);
+			if (teacher.getType() == 2) {
+				return 3;
+			} else {
+				return 1;
+			}
+		}
+	}
+
+	@Override
+	public void addAdmin(int teacherId) {
+		Query query = this.getSession().createQuery("update Teacher set type=1 where teacherId=?");
+		query.setInteger(0, teacherId);
+		query.executeUpdate();
+	}
 }

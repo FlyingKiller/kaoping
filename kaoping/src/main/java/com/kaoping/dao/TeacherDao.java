@@ -25,4 +25,8 @@ public interface TeacherDao {
 	public void updateTeacher(Teacher teacher);
 
 	public void deleteTeacher(int teacherId);
+
+	public int checkAdminName(int teacherId);
+
+	public void addAdmin(int teacherId);
 }
