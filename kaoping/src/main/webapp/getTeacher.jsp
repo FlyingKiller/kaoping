@@ -84,6 +84,24 @@
 			}
 		});
 	}
+	$(function() {
+		$("[id=delete]").click(function() {
+			var message = $(this).next(":hidden").val();
+			var flag = confirm("确定删除教职工     " + message + "    吗?");
+			if (flag) {
+				var url = this.href;
+				var $tr = $(this).parent().parent();
+				var params = {
+					time : new Date()
+				};
+				$.post(url, params, function(data) {
+					alert(data);
+					$tr.remove();
+				});
+			}
+			return false;
+		});
+	});
 </script>
 </head>
 <body>
@@ -200,10 +218,10 @@
 									<td><s:property value="cardId" /></td>
 									<td><s:property value="password" /></td>
 									<td><a
-										href="updateTeacher.action?teacherId=<s:property value='teacherId' />">修改</a></td>
+										href="modifyTeacher.action?teacherId=<s:property value='teacherId' />">修改</a></td>
 									<td><a
-										href="deleteAdmin.action?teacherId=${admin.teacherId}"
-										id="delete">删除</a><input type="hidden" value="${admin.name}" /></td>
+										href="deleteTeacher.action?teacherId=<s:property value='teacherId' />"
+										id="delete">删除</a><input type="hidden" value="<s:property value="name" />" /></td>
 								</tr>
 							</s:iterator>
 							<s:if test="%{#session.evaTeacherPage.pageNum>1}">

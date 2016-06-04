@@ -60,4 +60,16 @@ public class TeacherService {
 		return teacherDao.getTeacherByName(teacherName, academy);
 	}
 
+	public Teacher getTeacherById(int teacherId) {
+		return teacherDao.getTeacherById(teacherId);
+	}
+
+	public void updateTeacher(Teacher teacher) {
+		teacherDao.updateTeacher(teacher);		
+	}
+
+	public void deleteTeacher(int teacherId) {
+		teacherDao.deleteTeacher(teacherId);
+	}
+
 }

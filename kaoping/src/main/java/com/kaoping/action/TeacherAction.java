@@ -50,7 +50,7 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 	private String levelName;// 级别
 	private InputStream inputStream;// ajax使用
 	private Map<String, Object> session;// Map类型的session
-	private String teacherName;//按名字查询教职工之姓名
+	private String teacherName;// 按名字查询教职工之姓名
 	@Autowired
 	private TeacherService teacherService;
 
@@ -256,9 +256,13 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+	/**
+	 * 按名字查询教职工
+	 * 
+	 * @return
+	 */
 	public String getTeacherByName() {
-		List<Teacher> teacherList = teacherService.getTeacherByName(
-				teacherName, academy);
+		List<Teacher> teacherList = teacherService.getTeacherByName(teacherName, academy);
 		session.put("evaTeacherList", teacherList);
 		session.put("nowDepartment", "");
 		session.put("nowLevelName", "");
@@ -267,7 +271,9 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 * @return 查询教师页面获取部门和级别
+	 * 查询教师页面获取部门和级别
+	 * 
+	 * @return
 	 */
 	public String getDeparetmentAndLevel() {
 		session.put("academyDepartment", teacherService.getAcademy());
@@ -276,7 +282,9 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 * @return 添加教职工
+	 * 添加教职工
+	 * 
+	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
 	public String addTeacher() throws UnsupportedEncodingException {
@@ -288,6 +296,30 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 		} else {
 			inputStream = new ByteArrayInputStream("添加成功".getBytes("utf-8"));
 		}
+		return SUCCESS;
+	}
+
+	public String getTeacherById() {
+		Teacher teacher = teacherService.getTeacherById(teacherId);
+		session.put("updateTeacher", teacher);
+		return SUCCESS;
+	}
+
+	public String updateTeacher() {
+		Teacher teacher = new Teacher(teacherId, password, name, nation, sex, cardId, academy, level, status, degree,
+				dignity, positional, positionalLevel, positionalSery, id);
+		teacherService.updateTeacher(teacher);
+		session.put("evaTeacherList", teacherService.getTeacherById(teacherId));
+		return SUCCESS;
+	}
+
+	public String deleteTeacher() throws UnsupportedEncodingException {
+		teacherService.deleteTeacher(teacherId);
+		inputStream = new ByteArrayInputStream("删除成功".getBytes("utf-8"));
+		session.put("evaTeacherList", "");
+		session.put("nowDepartment", "");
+		session.put("nowLevelName", "");
+		session.put("evaTeacherPage", "");
 		return SUCCESS;
 	}
 }

@@ -19,4 +19,10 @@ public interface TeacherDao {
 	public List<Level> Level();
 
 	public List<Teacher> getTeacherByName(String teacherName, String academy);
+
+	public Teacher getTeacherById(int teacherId);
+
+	public void updateTeacher(Teacher teacher);
+
+	public void deleteTeacher(int teacherId);
 }

@@ -188,4 +188,25 @@ public class Teacher implements Serializable {
 		this.type = 2;// 2代表教职工
 	}
 
+	public Teacher(int teacherId, String password, String name, String nation, String sex, String cardId,
+			String academy, String level, String status, String degree, String dignity, String positional,
+			String positionalLevel, String positionalSery,int id) {
+		super();
+		this.teacherId = teacherId;
+		this.password = password;
+		this.name = name;
+		this.nation = nation;
+		this.sex = sex;
+		this.cardId = cardId;
+		this.academy = academy;
+		this.level = level;
+		this.status = status;
+		this.degree = degree;
+		this.dignity = dignity;
+		this.positional = positional;
+		this.positionalLevel = positionalLevel;
+		this.positionalSery = positionalSery;
+		this.id=id;
+	}
+
 }

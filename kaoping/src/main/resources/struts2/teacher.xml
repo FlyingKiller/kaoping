@@ -21,10 +21,20 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		<action name="getTeacherByName" class="TeacherAction"
-			method="getTeacherByName">
+		<action name="getTeacherByName" class="TeacherAction" method="getTeacherByName">
 			<result name="success" type="redirect">/getTeacher.jsp</result>
 		</action>
-
+		<action name="modifyTeacher" class="TeacherAction" method="getTeacherById">
+			<result name="success" type="redirect">/updateTeacher.jsp</result>
+		</action>
+		<action name="updateTeacher" class="TeacherAction" method="updateTeacher">
+			<result name="success" type="redirect">/getTeacher.jsp</result>
+		</action>
+		<action name="deleteTeacher" class="TeacherAction" method="deleteTeacher">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
 	</package>
 </struts>
