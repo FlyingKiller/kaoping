@@ -36,15 +36,23 @@
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-		<action name="checkAdminName" class="TeacherAction"
-			method="checkAdminName">
+		<action name="checkAdminName" class="TeacherAction" method="checkAdminName">
 			<result name="success" type="stream">
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
 		</action>
-			<action name="addAdmin" class="TeacherAction" method="addAdmin">
+		<action name="addAdmin" class="TeacherAction" method="addAdmin">
 			<result name="success" type="redirect">/addAdmin.jsp</result>
+		</action>
+		<action name="getAdmin" class="TeacherAction" method="getAdmin">
+			<result name="success" type="redirect">/getAdmin.jsp</result>
+		</action>
+		<action name="deleteAdmin" class="TeacherAction" method="deleteAdmin">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
 		</action>
 	</package>
 </struts>

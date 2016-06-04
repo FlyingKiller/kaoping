@@ -14,7 +14,7 @@
 		<s:if test="%{#session.currentUser.type==0}">
 			<div>
 				<span>管理员管理</span> <a href="addAdmin.jsp">添加管理员</a> <a
-					href="getAdmin.action?nowPage=1">查看管理员</a>
+					href="getAdmin.action">查看管理员</a>
 			</div>
 		</s:if>
 		<div class="collapsed">

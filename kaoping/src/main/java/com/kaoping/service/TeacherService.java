@@ -86,4 +86,12 @@ public class TeacherService {
 		teacherDao.addAdmin(teacherId);
 	}
 
+	public List<Teacher> getAdmin() {
+		return teacherDao.getAdmin();
+	}
+
+	public void deleteAdmin(int teacherId) {
+		teacherDao.deleteAdmin(teacherId);
+	}
+
 }

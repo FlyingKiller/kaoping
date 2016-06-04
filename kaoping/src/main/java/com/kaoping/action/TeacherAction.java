@@ -356,8 +356,35 @@ public class TeacherAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+	/**
+	 * 添加管理员
+	 * 
+	 * @return
+	 */
 	public String addAdmin() {
 		teacherService.addAdmin(teacherId);
+		return SUCCESS;
+	}
+
+	/**
+	 * 获取全部管理员
+	 * 
+	 * @return
+	 */
+	public String getAdmin() {
+		List<Teacher> adminList = teacherService.getAdmin();
+		session.put("adminList", adminList);
+		return SUCCESS;
+	}
+
+	/**删除管理员
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	public String deleteAdmin() throws UnsupportedEncodingException {
+		teacherService.deleteAdmin(teacherId);
+		getAdmin();
+		inputStream = new ByteArrayInputStream("删除成功".getBytes("utf-8"));
 		return SUCCESS;
 	}
 }

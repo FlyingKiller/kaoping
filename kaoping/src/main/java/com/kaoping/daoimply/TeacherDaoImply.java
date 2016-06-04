@@ -168,4 +168,21 @@ public class TeacherDaoImply extends FatherDaoImply implements TeacherDao {
 		query.setInteger(0, teacherId);
 		query.executeUpdate();
 	}
+
+	@Override
+	public List<Teacher> getAdmin() {
+		Query query = this.getSession().createQuery("from Teacher where type=1");
+		if (query.list().size() == 0) {
+			return null;
+		} else {
+			return query.list();
+		}
+	}
+
+	@Override
+	public void deleteAdmin(int teacherId) {
+		Query query = this.getSession().createQuery("update Teacher set type=2 where teacherId=?");
+		query.setInteger(0, teacherId);
+		query.executeUpdate();
+	}
 }
