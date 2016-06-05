@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.kaoping.entities.Standard" table="kp_standard"
+		lazy="false">
+		<id name="standardId" column="standardid">
+		</id>
+		<property name="name" column="name" />
+		<property name="teacherId" column="teacherid" />
+		<property name="createTime" column="createtime" />
+		<property name="sameweight" column="sameweight" />
+		<property name="academy" column="academy" />
+		<property name="sameacademyweight" column="sameacademyweight" />
+		<property name="excellent" column="excellent" />
+		<property name="eligibility" column="eligibility" />
+		<property name="jeligibility" column="jeligibility" />
+		<property name="beligibility" column="beligibility" />
+		<property name="schoolweight" column="schoolweight"></property>
+	</class>
+</hibernate-mapping>

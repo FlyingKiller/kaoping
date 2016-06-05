@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.kaoping.entities.StandardContent" table="kp_standardcontent"
+		lazy="false">
+		<id name="contentId" column="contentid">
+		</id>
+		<property name="contentName" column="contentname" />
+		<property name="percent" column="percent" />
+		<property name="standardId" column="standardid" />
+		<property name="standardName" column="standardname" />
+		<property name="remark2" column="remark2" />
+	</class>
+</hibernate-mapping>

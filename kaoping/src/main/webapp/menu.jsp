@@ -23,7 +23,7 @@
 		</div>
 		<div class="collapsed">
 			<span>考评标准</span><a href="addStandard.jsp">新建标准</a> <a
-				href="getStandard.action?nowPage=1&academy=${sessionScope.currentUser.academy}">查看标准</a>
+				href="getStandard.action?nowPage=1">查看标准</a>
 		</div>
 		<div class="collapsed">
 			<span>考评管理</span> <a href="addEvaluation.jsp">新建干部考评</a>

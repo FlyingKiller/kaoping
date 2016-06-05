@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="standard" extends="struts-default">
+		<action name="checkStandardName" class="StandardAction" method="checkStandardName">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="addStandard" class="StandardAction" method="addStandard">
+			<result name="success" type="redirect">/addStandardSuccess.jsp
+			</result>
+		</action>
+	</package>
+</struts>
