@@ -5,7 +5,10 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.context.annotation.Scope;
+=======
+>>>>>>> 290e1ddb8bc68cbb50dda02552e1bdd5bb7acf22
 import org.springframework.stereotype.Controller;
 
 import com.kaoping.service.LoginService;
@@ -14,8 +17,12 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  * @author ASUS µÇÂ¼µÄactionÀà
  */
+<<<<<<< HEAD
 @Controller("LoginAction")
 @Scope("session")
+=======
+@Controller
+>>>>>>> 290e1ddb8bc68cbb50dda02552e1bdd5bb7acf22
 public class LoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * 
@@ -51,7 +58,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	public void setLoginService(LoginService loginService) {
 		this.loginService = loginService;
 	}
