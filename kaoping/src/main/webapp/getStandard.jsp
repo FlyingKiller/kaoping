@@ -56,12 +56,12 @@
 					<strong>查看标准</strong>
 				</div>
 			</div>
-			<div style="width:900px; margin:auto">
+			<div style="width: 900px; margin: auto">
 				<s:if test="%{#session.standardList.size==0}">
 					<table class="table table-bordered table-hover table-striped">
 						<tbody>
 							<tr align="center">
-								<td width="5%">没有标准</td>
+								<td width="5%">本部门没有标准</td>
 							</tr>
 						</tbody>
 					</table>

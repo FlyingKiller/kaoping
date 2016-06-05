@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 
 import com.kaoping.entities.Standard;
 import com.kaoping.entities.StandardContent;
+import com.kaoping.entities.Teacher;
 import com.kaoping.service.StandardService;
 import com.kaoping.tool.Content;
 import com.kaoping.tool.Page;
@@ -170,15 +171,15 @@ public class StandardAction extends ActionSupport implements SessionAware {
 		this.standardService = standardService;
 	}
 
-	/**
-	 * public String getStandard() throws UnsupportedEncodingException { String
-	 * newacademy = new String(academy.getBytes("iso_8859_1"), "utf-8"); Page
-	 * page = new Page(standardService.getStandardRow(newacademy), nowPage);
-	 * System.out.println(newacademy + "bbbbb"); List<Standard> standardList =
-	 * standardService.getStandardByPage(newacademy, page);
-	 * session.put("standardList", standardList); session.put("standardPage",
-	 * page); return SUCCESS; }
-	 **/
+	public String getStandard() throws UnsupportedEncodingException {
+		Teacher currentUser = (Teacher) session.get("currentUser");
+		String newacademy = currentUser.getAcademy();
+		Page page = new Page(standardService.getStandardRow(newacademy), nowPage);
+		List<Standard> standardList = standardService.getStandardByPage(newacademy, page);
+		session.put("standardList", standardList);
+		session.put("standardPage", page);
+		return SUCCESS;
+	}
 
 	public String checkStandardName() throws UnsupportedEncodingException {
 		if (standardService.checkStandardName(standardName)) {
@@ -203,20 +204,20 @@ public class StandardAction extends ActionSupport implements SessionAware {
 		}
 		return SUCCESS;
 	}
-/**
+
 	public String deleteStandard() throws UnsupportedEncodingException {
 		standardService.deleteStandard(new String(standardName.getBytes("iso_8859_1"), "utf-8"));
-		inputStream = new ByteArrayInputStream("鍒犻櫎鎴愬姛".getBytes("utf-8"));
+		inputStream = new ByteArrayInputStream("标准已删除".getBytes("utf-8"));
 		getStandard();
 		return SUCCESS;
 	}
-	/**
-	 * public String getStandardDetail() { List
-	 * <StandardContent> standardContentList =
-	 * standardService.getStandardDetail(standardId); List
-	 * <Standard> standardBList =
-	 * standardService.getStandardDetailB(standardId);
-	 * session.put("standardContentList", standardContentList);
-	 * session.put("standardBList", standardBList.get(0)); return SUCCESS; }
-	 **/
+
+	public String getStandardDetail() {
+		List<StandardContent> standardContentList = standardService.getStandardDetail(standardId);
+		List<Standard> standardBList = standardService.getStandardDetailB(standardId);
+		session.put("standardContentList", standardContentList);
+		session.put("standardBList", standardBList.get(0));
+		return SUCCESS;
+	}
+
 }

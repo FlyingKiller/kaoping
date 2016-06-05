@@ -16,7 +16,7 @@ public class StandardDaoImply extends FatherDaoImply implements StandardDao {
 	@Override
 	public int getStandardRow(String academy) {
 		Query query = null;
-		if ("ss".equals(academy)) {
+		if ("超级管理员".equals(academy)) {
 			query = this.getSession().createQuery("from Standard");
 		} else {
 			query = this.getSession().createQuery("from Standard where academy=:academy");
@@ -28,7 +28,7 @@ public class StandardDaoImply extends FatherDaoImply implements StandardDao {
 	@Override
 	public List<Standard> getStandardByPage(String academy, Page page) {
 		Query query = null;
-		if ("".equals(academy)) {
+		if ("超级管理员".equals(academy)) {
 			query = this.getSession().createQuery("from Standard");
 		} else {
 			query = this.getSession().createQuery("from Standard where academy=:academy");

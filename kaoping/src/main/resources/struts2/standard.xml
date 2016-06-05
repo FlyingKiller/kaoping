@@ -14,5 +14,19 @@
 			<result name="success" type="redirect">/addStandardSuccess.jsp
 			</result>
 		</action>
+		<action name="getStandard" class="StandardAction" method="getStandard">
+			<result name="success" type="redirect">/getStandard.jsp
+			</result>
+		</action>
+		<action name="getStandardDetail" class="StandardAction" method="getStandardDetail">
+			<result name="success" type="redirect">/getStandardMessage.jsp</result>
+		</action>
+		<action name="deleteStandard" class="StandardAction"
+			method="deleteStandard">
+			<result type="stream" name="success">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
 	</package>
 </struts>
