@@ -1,3 +1,3 @@
-![](https://github.com/FlyingKiller/kaoping/raw/master/img/left.png) 
+![](https://github.com/FlyingKiller/kaoping/raw/master/img/20150212154319.jpg) 
 
 
